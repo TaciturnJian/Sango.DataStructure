@@ -1,7 +1,8 @@
-#include "Sango.CodeHelper.h"
-#include "Sango.StringHelper.h"
+#include <stdio.h>
 
-#include "Sango.LinearList.h"
+#include "Sango.LinearList.Extension.h"
+#include "Sango.StringHelper.h"
+#include "约瑟夫环.h"
 
 int reverse(int x) {
     double t = 0;
@@ -11,12 +12,7 @@ int reverse(int x) {
         x /= 10;
     }
 
-    printf("%lf ", t);
-    if (t > 0x7fffffffu - 1 || t < -0x7fffffff) {
-        return 0;
-    }
-
-    return (int)t;
+    return (int)t == t? (int)t : 0;
 }
 
 CompareResult compare(ElementPointer a, ElementPointer b) {
@@ -30,23 +26,27 @@ CompareResult compare(ElementPointer a, ElementPointer b) {
         return LESS;
     }
 }
+
 void printElement(ElementPointer e) {
     printf("%d ", *e);
 }
 
+#define TEST(str) {char* result = makeLongestString(str);printf(">>%s\n: %s\n",str,result);free(result);}
+
 int main() {
+    TEST("aaabbbcccdddedg");
+    TEST("jjkkiiuuuutttttdgfwwe");
 
-    LinearListPointer p = CreateLinearList(10);
+    LinearListPointer p = CreateLinearList(1000);
 
-    int t = 12;
-    AppendCopiedElementIntoLinearList(p, &t);
-    t -= 1;
-    AppendCopiedElementIntoLinearList(p, &t);
-    t += 10;
-    AppendCopiedElementIntoLinearList(p, &t);
-    t -= 333;
-    AppendCopiedElementIntoLinearList(p, &t);
+    int a[10] = { 3,1,7,2,4,8,4 };
+    约瑟夫环(a, 7);
 
+    int t;
+    for (int i = 0; i < 999; i++) {
+        t = (i * 73 / 3 + i * 23 / 2) % 100;
+        AppendCopiedElementIntoLinearList(p, &t);
+    }
 
     ForEachElementInLinearList(p, printElement); putchar('\n');
     SortLinearList(p, compare);

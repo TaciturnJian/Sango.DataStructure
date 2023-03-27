@@ -3,7 +3,7 @@
 #pragma region 链表的创建
 
 ChainedNodePointer CreateChainedNode(ElementPointer element) {
-	SimpleMallocNode(node);
+	ChainedNodePointer node = MallocChainedNode();
 	ReturnXWhenNullPointer(0, node);
 
 	node->element_pointer = element;
@@ -13,11 +13,17 @@ ChainedNodePointer CreateChainedNode(ElementPointer element) {
 
 ChainedNodePointer CreateChainedNode_SimpleCopyElement(ElementPointer element) {
 	ReturnXWhenNullPointer(0, element);
-	SimpleMallocElement(element_copied);
+	ElementPointer element_copied = (ElementType *)(malloc(sizeof(ElementType)));
 	ReturnXWhenNullPointer(0, element_copied);
 
 	memcpy(element_copied, element, SANGO_ELEMENT_SIZE);
-	return CreateChainedNode(element_copied);
+	ChainedNodePointer node = CreateChainedNode(element_copied);
+	if NullPointer(node) {
+		free(element_copied);
+		return 0;
+	}
+
+	return node;
 }
 
 #pragma endregion
@@ -25,8 +31,8 @@ ChainedNodePointer CreateChainedNode_SimpleCopyElement(ElementPointer element) {
 #pragma region 连接节点
 
 void Connect2Nodes(ChainedNodePointer last, ChainedNodePointer next) {
-	ExecuteXWhenNotNullPointer(last, last->next = next);
-	ExecuteXWhenNotNullPointer(next, next->last = last);
+	ExecuteXWhenNotNullPointer(last->next = next, last);
+	ExecuteXWhenNotNullPointer(next->last = last, next);
 }
 
 void Connect3Nodes(ChainedNodePointer last, ChainedNodePointer mid, ChainedNodePointer next) {

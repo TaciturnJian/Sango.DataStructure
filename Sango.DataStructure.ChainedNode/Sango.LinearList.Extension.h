@@ -1,3 +1,8 @@
+/*
+	Author: Èý¹¶Sango
+
+*/
+
 
 #ifndef SANGO_LINEAR_LIST_EXTENSION
 #define SANGO_LINEAR_LIST_EXTENSION
@@ -37,9 +42,8 @@ LinearListPointer CreateUnionFromTwoUnsortedLists(LinearListPointer listA, Linea
 //TODO
 LinearListPointer CreateUnionFromTwoSortedLists(LinearListPointer list1, LinearListPointer list2);
 
-void ForEachElementInLinearList(LinearListPointer list, ElementActionFunctionPointer actionFunctionPointer);;
+void ForEachElementInLinearList(LinearListPointer list, ElementActionFunctionPointer actionFunctionPointer);
 
 #pragma endregion
 
 #endif
-

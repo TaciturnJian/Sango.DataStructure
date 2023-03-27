@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0525b3b0-64df-4dc4-b953-56d6449be345}</ProjectGuid>
-    <RootNamespace>SangoDataStructureChainedNode</RootNamespace>
+    <ProjectGuid>{3c76c10f-8cd3-46cf-8166-6a21dcb221bb}</ProjectGuid>
+    <RootNamespace>SangoCPPDataStructures</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Sango.DataStructures</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,37 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Sango.Bool.h" />
-    <ClInclude Include="Sango.ChainedNode.Extension.h" />
-    <ClInclude Include="Sango.ChainedNode.h" />
-    <ClInclude Include="Sango.CodeHelper.ConnectArguments.h" />
-    <ClInclude Include="Sango.CodeHelper.Generic.Extension.h" />
-    <ClInclude Include="Sango.CodeHelper.Generic.h" />
-    <ClInclude Include="Sango.CodeHelpers.h" />
-    <ClInclude Include="Sango.CodeHelper.IterateArguments.h" />
-    <ClInclude Include="Sango.CodeHelper.SimpleMalloc.h" />
-    <ClInclude Include="Sango.CodeHelper.RepeatArguments.h" />
-    <ClInclude Include="Sango.LinearList.Extension.h" />
-    <ClInclude Include="Sango.LinearList.h" />
-    <ClInclude Include="Sango.LinkedNode.Extension.h" />
-    <ClInclude Include="Sango.LinkedNode.h" />
-    <ClInclude Include="Sango.Math.CodeHelper.h" />
-    <ClInclude Include="Sango.Math.Fibonacci.h" />
-    <ClInclude Include="Sango.Math.FunctionPX.h" />
-    <ClInclude Include="Sango.StringHelper.h" />
-    <ClInclude Include="Sango.XOrChainedNode.h" />
-    <ClInclude Include="约瑟夫环.h" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sango.Stack.cpp" />
+    <ClCompile Include="Sango.TemplateLinearStructure.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
-    <ClCompile Include="Sango.ChainedNode.Extension.c" />
-    <ClCompile Include="Sango.CodeHelper.Generic.Extension.c" />
-    <ClCompile Include="Sango.LinearList.Extension.c" />
-    <ClCompile Include="Sango.LinkedNode.Extension.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="动态规划.md" />
+    <ClInclude Include="Sango.KMP.hpp" />
+    <ClInclude Include="Sango.Stack.h" />
+    <ClInclude Include="Sango.TemplateLinearStructure.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

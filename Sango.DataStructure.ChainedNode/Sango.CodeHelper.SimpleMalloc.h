@@ -13,7 +13,7 @@
 #define CastTo(type, x) (type)(x)
 #define CastToPointer(type, x) (type*)(x)
 
-typedef void *VoidPointer;
+typedef void *VoidPointer, *UniversalPointer;
 typedef void ActionFunction(void), (*ActionFunctionPointer)(void);
 #define CastToActionFunctionPointer(x) CastTo(ActionFunctionPointer, x)
 
@@ -30,6 +30,8 @@ typedef void ActionFunction(void), (*ActionFunctionPointer)(void);
 
 #pragma region 指针处理
 
+#pragma region 空指针行为
+
 #define NullPointer(pointer) ((pointer) == 0)
 #define ExecuteXWhenNullPointer(pointer, x)\
 if NullPointer(pointer) {\
@@ -38,17 +40,23 @@ if NullPointer(pointer) {\
 
 #define ReturnWhenNullPointer(pointer) ExecuteXWhenNullPointer(pointer, return)
 #define ReturnXWhenNullPointer(x, pointer) ExecuteXWhenNullPointer(pointer, return x)
-#define FreeWhenNotNullPointer(pointer) ExecuteXWhenNullPointer(pointer, free(pointer))
+#define FreeWhenNullPointer(pointer) ExecuteXWhenNullPointer(pointer, free(pointer))
+
+#pragma endregion
+
+#pragma region 非空指针行为
 
 #define NotNullPointer(pointer) ((pointer) != 0)
-#define ExecuteXWhenNotNullPointer(pointer, x)\
+#define ExecuteXWhenNotNullPointer(x, pointer)\
 if NotNullPointer(pointer) {\
 	x;\
 }
 
-#define ReturnWhenNotNullPointer(pointer) ExecuteXWhenNotNullPointer(pointer, return)
-#define ReturnXWhenNotNullPointer(x, pointer) ExecuteXWhenNotNullPointer(pointer, return x)
-#define FreeWhenNotNotNullPointer(pointer) ExecuteXWhenNotNullPointer(pointer, free(pointer))
+#define ReturnWhenNotNullPointer(pointer) ExecuteXWhenNotNullPointer(return, pointer)
+#define ReturnXWhenNotNullPointer(x, pointer) ExecuteXWhenNotNullPointer(return x, pointer)
+#define FreeWhenNotNullPointer(pointer) ExecuteXWhenNotNullPointer(free(pointer), pointer)
+
+#pragma endregion
 
 #pragma endregion
 

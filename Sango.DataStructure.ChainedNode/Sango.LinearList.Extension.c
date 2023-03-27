@@ -9,7 +9,7 @@ LinearListPointer CreateLinearList(int maxCapacity) {
 
 	if (maxCapacity == 0) {
 		LinearListPointer list = MallocList();
-		ReturnWhenNullPointer(list);
+		ReturnXWhenNullPointer(0, list);
 
 		list->count = 0;
 		list->element_list = 0;
@@ -18,7 +18,7 @@ LinearListPointer CreateLinearList(int maxCapacity) {
 	}
 
 	LinearListPointer list = MallocList();
-	ReturnWhenNullPointer(list);
+	ReturnXWhenNullPointer(0, list);
 
 	list->count = 0;
 	list->max_capacity = maxCapacity;
@@ -43,7 +43,7 @@ void DestroyLinearList(LinearListPointer list) {
 #pragma region 线性表的基本操作
 
 ElementPointer GetElementPointerFromLinearList(LinearListPointer list, int index) {
-	ReturnWhenNullPointer(list);
+	ReturnXWhenNullPointer(0, list);
 	if CheckValidIndexInLinearListPointer(index, list) {
 		return 0;
 	}
@@ -52,8 +52,8 @@ ElementPointer GetElementPointerFromLinearList(LinearListPointer list, int index
 }
 
 status AppendCopiedElementIntoLinearList(LinearListPointer list, ElementPointer e) {
-	ReturnWhenNullPointer(list);
-	ReturnWhenNullPointer(e);
+	ReturnXWhenNullPointer(STATUS_ERROR, list);
+	ReturnXWhenNullPointer(STATUS_ERROR, e);
 
 	if (list->count >= list->max_capacity) {
 		return STATUS_ERROR;
@@ -124,7 +124,7 @@ void QuickSortForLinearList(LinearListPointer list, CompareFunctionPointer compa
 }
 
 void SortLinearList(LinearListPointer list, CompareFunctionPointer compareFunction) {
-	return QuickSortForLinearList(list, compareFunction, 0, list->count - 1);
+	QuickSortForLinearList(list, compareFunction, 0, list->count - 1);
 }
 
 //TODO
@@ -140,7 +140,7 @@ LinearListPointer CreateUnionFromTwoSortedLists(LinearListPointer list1, LinearL
 	LinearListPointer result = CreateLinearList(list1->count + list2->count);
 	ReturnXWhenNullPointer(0, result);
 
-
+	
 }
 
 void ForEachElementInLinearList(LinearListPointer list, ElementActionFunctionPointer actionFunctionPointer) {

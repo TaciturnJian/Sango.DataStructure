@@ -1,7 +1,7 @@
 #pragma once
 
 #include <math.h>
-#include "Sango.CodeHelper.h"
+#include "Sango.CodeHelpers.h"
 
 #ifndef SANGO_MATH_NUMBER
 #define SANGO_MATH_NUMBER double

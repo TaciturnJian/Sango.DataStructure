@@ -3,7 +3,6 @@
 	Brief: 提供关于双向链表的类型定义、宏定义、宏函数
 */
 
-
 #ifndef SANGO_CHAINED_NODE
 #define SANGO_CHAINED_NODE
 
@@ -16,8 +15,7 @@ typedef struct _ChainedNode {
 } ChainedNode, *ChainedNodePointer;
 
 #define SANGO_CHAINED_NODE_SIZE sizeof(ChainedNode)
-#define MallocNode() SangoMalloc(ChainedNode)
-#define SimpleMallocNode(nodeName) ChainedNodePointer nodeName = MallocNode() 
-#define MallocNodeN(count) SangoMallocN(ChainedNode, count)
+#define MallocChainedNode() SangoMalloc(ChainedNode)
+#define MallocChainedNodeN(count) SangoMallocN(ChainedNode, count)
 
 #endif

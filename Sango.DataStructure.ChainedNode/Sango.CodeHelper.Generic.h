@@ -16,17 +16,17 @@
 
 typedef SANGO_ELEMENT_TYPE ElementType, *ElementPointer;
 #define MallocElement() SangoMalloc(ElementType)
-#define SimpleMallocElement(elementName) ElementPointer elementName = MallocElement()
 #define MallocElementN(count) SangoMallocN(ElementType, count)
 #define SANGO_ELEMENT_SIZE sizeof(ElementType)
-
-typedef void ElementActionFunction(ElementPointer), (*ElementActionFunctionPointer)(ElementPointer);
-#define CastToElementACtionFunction(x) CastTo(ElementActionFunctionPointer, x)
-
-typedef CompareResult CompareFunction(ElementPointer, ElementPointer), (*CompareFunctionPointer)(ElementPointer, ElementPointer);
-#define CastToCompareFunction(x) CastTo(CompareFunctionPointer, x)
-
 #define CopyElement(destination, elementPointer) memcpy(destination, elementPointer, SANGO_ELEMENT_SIZE)
 
-#endif
+typedef void ElementActionFunction(ElementPointer), (*ElementActionFunctionPointer)(ElementPointer);
+#define CastToElementActionFunction(x) CastToPointer(ElementActionFunction, x)
 
+typedef CompareResult CompareFunction(ElementPointer, ElementPointer), (*CompareFunctionPointer)(ElementPointer, ElementPointer);
+#define CastToCompareFunction(x) CastToPointer(CompareFunction, x)
+
+typedef ElementPointer ElementSelectionFunction(UniversalPointer), (*ElementSelectionFunctionPointer)(UniversalPointer);
+#define CastToElementSelectionFunction(x) CastToPointer(ElementSelectionFunction, x)
+
+#endif

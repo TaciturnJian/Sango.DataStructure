@@ -1,0 +1,1 @@
+#include "Sango.TemplateLinearStructure.h"

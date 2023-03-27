@@ -19,16 +19,25 @@
     <Filter Include="头文件\Sango.CodeHelper">
       <UniqueIdentifier>{0af150c9-7791-4518-a74e-97d05f5fd622}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\Sango.ChainedNode">
+    <Filter Include="源文件\Sango.CodeHelper">
+      <UniqueIdentifier>{02032900-15b0-4a27-bb3b-b09b7f1c8ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\LinearStructures">
+      <UniqueIdentifier>{ed7547a4-0e25-4c4e-8022-6ae58ee5c618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\LinearStructures\Sango.ChainedNode">
       <UniqueIdentifier>{bbebe0ed-643d-40da-881e-11f0287049a9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Sango.ChainedNode">
-      <UniqueIdentifier>{34964f7d-643f-4b78-9c07-2dddbb585dd8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\Sango.LinearList">
+    <Filter Include="头文件\LinearStructures\Sango.LinearList">
       <UniqueIdentifier>{6985e6d5-9a90-4684-b5aa-87f8a68afda4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Sango.LinearList">
+    <Filter Include="源文件\LinearStructures">
+      <UniqueIdentifier>{1995e0f3-7bcf-4d27-bd63-0af5b9d50efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\LinearStructures\Sango.ChainedNode">
+      <UniqueIdentifier>{34964f7d-643f-4b78-9c07-2dddbb585dd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\LinearStructures\Sango.LinearList">
       <UniqueIdentifier>{53802ed8-fa85-46c3-a20f-fcaf0cb311bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -48,7 +57,7 @@
     <ClInclude Include="Sango.StringHelper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Sango.CodeHelper.h">
+    <ClInclude Include="Sango.CodeHelpers.h">
       <Filter>头文件\Sango.CodeHelper</Filter>
     </ClInclude>
     <ClInclude Include="Sango.CodeHelper.ConnectArguments.h">
@@ -67,16 +76,31 @@
       <Filter>头文件\Sango.CodeHelper</Filter>
     </ClInclude>
     <ClInclude Include="Sango.ChainedNode.h">
-      <Filter>头文件\Sango.ChainedNode</Filter>
+      <Filter>头文件\LinearStructures\Sango.ChainedNode</Filter>
     </ClInclude>
     <ClInclude Include="Sango.ChainedNode.Extension.h">
-      <Filter>头文件\Sango.ChainedNode</Filter>
+      <Filter>头文件\LinearStructures\Sango.ChainedNode</Filter>
     </ClInclude>
     <ClInclude Include="Sango.LinearList.h">
-      <Filter>头文件\Sango.LinearList</Filter>
+      <Filter>头文件\LinearStructures\Sango.LinearList</Filter>
     </ClInclude>
     <ClInclude Include="Sango.LinearList.Extension.h">
-      <Filter>头文件\Sango.LinearList</Filter>
+      <Filter>头文件\LinearStructures\Sango.LinearList</Filter>
+    </ClInclude>
+    <ClInclude Include="Sango.XOrChainedNode.h">
+      <Filter>头文件\LinearStructures\Sango.ChainedNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Sango.CodeHelper.Generic.Extension.h">
+      <Filter>头文件\Sango.CodeHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="Sango.LinkedNode.h">
+      <Filter>头文件\LinearStructures\Sango.ChainedNode</Filter>
+    </ClInclude>
+    <ClInclude Include="Sango.LinkedNode.Extension.h">
+      <Filter>头文件\LinearStructures\Sango.ChainedNode</Filter>
+    </ClInclude>
+    <ClInclude Include="约瑟夫环.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,13 +108,20 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Sango.ChainedNode.Extension.c">
-      <Filter>源文件\Sango.ChainedNode</Filter>
+      <Filter>源文件\LinearStructures\Sango.ChainedNode</Filter>
     </ClCompile>
     <ClCompile Include="Sango.LinearList.Extension.c">
-      <Filter>源文件\Sango.LinearList</Filter>
+      <Filter>源文件\LinearStructures\Sango.LinearList</Filter>
+    </ClCompile>
+    <ClCompile Include="Sango.CodeHelper.Generic.Extension.c">
+      <Filter>源文件\Sango.CodeHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="Sango.LinkedNode.Extension.c">
+      <Filter>源文件\LinearStructures\Sango.ChainedNode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="动态规划.md" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
